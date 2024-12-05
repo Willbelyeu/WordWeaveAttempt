@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Button Layout</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .light-mode {
+            background-color: white;
+            color: black;
+        }
+        .dark-mode {
+            background-color: black;
+            color: white;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+        .top-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px;
+        }
+        .center-row {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-grow: 1;
+        }
+        .button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .button:hover {
+            opacity: 0.8;
+        }
+        .light-mode .button {
+            background-color: #f0f0f0;
+            color: black;
+        }
+        .dark-mode .button {
+            background-color: #333;
+            color: white;
+        }
+        .center-row .button {
+            margin: 0 10px;
+        }
+    </style>
+</head>
+<body class="light-mode">
+    <div class="container">
+        <div class="top-row">
+            <!-- Button to load another HTML file -->
+            <button class="button" onclick="loadHtmlFile()">Main Function</button>
+            <button class="button" onclick="toggleDarkMode()">Toggle Dark/Light Mode</button>
+        </div>
+        <div class="center-row">
+            <button class="button" onclick="newGame()">New Game</button>
+            <button class="button" onclick="oldGames()">Old Game(s)</button>
+        </div>
+    </div>
+
+    <!-- Include the newGame.js file -->
+    <script src="newGame.js"></script>
+
+    <script>
+        // Function to toggle between dark mode and light mode
+        function toggleDarkMode() {
+            const body = document.body;
+            body.classList.toggle("dark-mode");
+            body.classList.toggle("light-mode");
+        }
+
+        // Function to load another HTML file
+        function loadHtmlFile() {
+            window.location.href = "mainMenu.html"; // Replace with the actual file name
+        }
+
+        // Placeholder for the old games function
+        function oldGames() {
+            alert("Old Games Accessed!");
+        }
+    </script>
+</body>
+</html>
